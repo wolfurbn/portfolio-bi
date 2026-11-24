@@ -6,21 +6,24 @@ Site estático responsivo em HTML, CSS e JavaScript, pronto para publicar no Git
 
 ```
 index.html      página principal
-style.css       estilos
-script.js       links, janelas de detalhes dos projetos e galeria de imagens
-imagens/        prints dos dashboards, modelagem, medidas DAX e Power Query
+style.css       estilos (inclui o modo escuro)
+script.js       links, dados dos projetos, galeria de imagens, tema e animações
+imagens/        prints dos dashboards, SQL, Python, modelagem, medidas DAX e Power Query
 README.md       este arquivo
 ```
+
+O `index.html` precisa ficar na raiz do repositório, com a pasta `imagens/` ao lado dele.
 
 ## Personalização rápida
 
 1. Abra `script.js` e confira os endereços em `SETTINGS`:
-   - `comercialUrl` e `agrovitaUrl`: links dos relatórios (abrem pelo botão "Abrir relatório").
-   - `linkedinUrl`: use o endereço completo, começando com `https://` (sem isso o link quebra no GitHub Pages).
+   - `comercialUrl`, `agrovitaUrl` e `urbanranchUrl`: links dos relatórios (abrem pelo botão "Abrir relatório"). Se `urbanranchUrl` ficar vazio, o botão não aparece.
+   - `linkedinUrl`: use o endereço completo, começando com `https://`.
    - `cvUrl`: link do currículo.
-2. Para trocar ou incluir imagens, coloque o arquivo na pasta `imagens/` e registre-o na lista `gallery` do projeto correspondente em `script.js` (arquivo, largura, altura, texto alternativo e legenda).
+2. Para incluir um print novo em um projeto, coloque o arquivo em `imagens/` e adicione uma linha na lista `gallery` do projeto em `script.js` (grupo, arquivo, largura, altura, texto alternativo e legenda). O grupo vira uma aba na janela de detalhes.
 3. Use nomes de arquivo em minúsculas, sem espaços e sem acentos. O GitHub Pages diferencia maiúsculas de minúsculas.
-4. Não publique dados de clientes nem informações confidenciais. Os projetos deste portfólio usam dados fictícios.
+4. Antes de publicar um print, confira se não aparecem dados pessoais, caminhos de pastas do seu computador, contas ou dados reais de empresas.
+5. O site abre no tema claro ou escuro conforme a preferência do dispositivo, e o botão no topo alterna e lembra a escolha.
 
 ## Publicar no GitHub Pages
 

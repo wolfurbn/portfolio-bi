@@ -5,19 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Portfólio profissional de Business Intelligence, Power BI, análise de dados e indicadores de negócio.">
   <title>Wolf K. Urban | Portfólio BI</title>
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Wolf K. Urban | Portfólio BI">
+  <meta property="og:description" content="Dados e BI aplicados à Engenharia: Power BI, SQL, Python, DAX, Power Query, Excel e SAP.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314253b'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='800' text-anchor='middle' fill='%23ffffff'%3EBI%3C/text%3E%3Ccircle cx='51' cy='44' r='4' fill='%2312a875'/%3E%3C/svg%3E">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t && window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) t = "dark";
+        document.documentElement.dataset.theme = t || "light";
+      } catch (e) { document.documentElement.dataset.theme = "light"; }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#projetos">Pular para o conteúdo</a>
   <header class="site-header">
     <nav class="nav container" aria-label="Navegação principal">
       <a class="brand" href="#inicio" aria-label="Início">
         <span class="brand-mark">BI<span>.</span></span>
         <span class="brand-copy"><strong>Wolf K. Urban</strong><small>Business Intelligence</small></span>
       </a>
-      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <div class="nav-tools"><button class="theme-toggle" type="button" aria-label="Ativar modo escuro"><span aria-hidden="true">☾</span></button><button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button></div>
       <div class="nav-links">
         <a href="#inicio">Início</a><a href="#projetos">Projetos</a><a href="#experiencia">Experiência</a><a href="#competencias">Competências</a><a href="#sobre">Sobre mim</a><a class="nav-cta" href="#contato">Contato <span>↗</span></a>
       </div>
@@ -30,8 +46,8 @@
         <div class="hero-content">
           <p class="eyebrow"><span class="eyebrow-dot"></span> PORTFÓLIO PROFISSIONAL</p>
           <h1>Dados claros.<br><span>Decisões melhores.</span></h1>
-          <p class="hero-description">Olá, sou <strong>Wolf K. Urban</strong>. Tenho mais de 10 anos de experiência em ambientes industriais, intralogística, projetos e vendas técnicas, e estou em transição para Dados e BI aplicados à Engenharia. Uso Power BI, Excel e SAP para transformar dados em indicadores que apoiam decisões de negócio.</p>
-          <div class="hero-tags"><span>Power BI</span><span>DAX &amp; Power Query</span><span>Excel avançado</span><span>SAP S/4HANA</span><span>Engenharia &amp; Indústria</span></div>
+          <p class="hero-description">Olá, sou <strong>Wolf K. Urban</strong>. Tenho mais de 10 anos de experiência em ambientes industriais, intralogística, projetos e vendas técnicas, e estou em transição para Dados e BI aplicados à Engenharia. Uso Power BI, SQL, Python, Excel e SAP para transformar dados em indicadores que apoiam decisões de negócio.</p>
+          <div class="hero-tags"><span>Power BI</span><span>SQL &amp; Python</span><span>DAX &amp; Power Query</span><span>Excel avançado</span><span>SAP S/4HANA</span></div>
           <div class="hero-actions">
             <a class="button button-primary" href="#projetos">Explorar projetos <span>↓</span></a>
             <a class="button button-ghost" href="#" id="cv-link">Currículo <span>↗</span></a>
@@ -54,6 +70,12 @@
           <div class="hero-orb"></div>
         </div>
       </div>
+      <div class="container hero-stats">
+        <div><b>10+</b><span>anos em indústria, intralogística e vendas técnicas</span></div>
+        <div><b>500+</b><span>clientes atendidos em todo o Brasil</span></div>
+        <div><b>SAP → BI</b><span>dados do ERP em dashboards semanais</span></div>
+        <div><b>3</b><span>projetos de BI com dados fictícios</span></div>
+      </div>
     </section>
 
     <section class="section projects-section" id="projetos">
@@ -63,15 +85,33 @@
           <p>Dashboards desenvolvidos para explorar desafios reais de negócio em cenários fictícios, da preparação dos dados à leitura dos indicadores.</p>
         </div>
         <div class="projects-grid">
+          <article class="project-card featured">
+            <div class="project-visual ranch-visual has-shot">
+              <a class="project-shot project-link" href="#" data-project="urbanranch" aria-label="Ver detalhes do projeto Urban Ranch Pecuária">
+                <img src="imagens/urbanranch-visao-executiva.webp" width="1445" height="810" decoding="async" alt="Página Visão Executiva do dashboard Urban Ranch Pecuária em Power BI com faturamento, margem, custo da arroba produzida, GMD e mortalidade">
+              </a>
+              <span class="visual-label">01 / PECUÁRIA DE CORTE</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta"><span class="project-number">PROJETO 01 · DESTAQUE</span><span class="project-status"><i></i> Dados fictícios</span></div>
+              <h3>Urban Ranch Pecuária</h3>
+              <p>Um case de pecuária de corte do banco de dados ao dashboard: dados em SQLite, limpeza e análise em Python e um relatório de quatro páginas em Power BI com margem, GMD, mortalidade, custos e CAPEX rural.</p>
+              <div class="pipeline" aria-label="Etapas do projeto"><span>SQL</span><i>→</i><span>Python</span><i>→</i><span>Power BI</span></div>
+              <div class="project-points"><span>↗ Margem, custo da arroba e GMD por unidade</span><span>↗ Qualidade de dados: duplicados, sinais e pesos corrigidos</span><span>↗ Custos, rentabilidade e CAPEX rural</span></div>
+              <div class="tech-tags"><span>SQL</span><span>Python</span><span>pandas</span><span>Power BI</span><span>DAX</span></div>
+              <a class="text-link project-link" href="#" data-project="urbanranch">Ver detalhes do projeto <span>→</span></a>
+            </div>
+          </article>
+
           <article class="project-card">
             <div class="project-visual sales-visual has-shot">
               <a class="project-shot project-link" href="#" data-project="comercial" aria-label="Ver detalhes do projeto Inteligência Comercial">
                 <img src="imagens/comercial-dashboard.webp" width="1512" height="853" loading="lazy" alt="Dashboard Comercial em Power BI com receita, total de vendas, ticket médio, quantidade de clientes, faturamento por mês, por gênero, por marca e por continente">
               </a>
-              <span class="visual-label">01 / COMERCIAL</span>
+              <span class="visual-label">02 / COMERCIAL</span>
             </div>
             <div class="project-body">
-              <div class="project-meta"><span class="project-number">PROJETO 01</span><span class="project-status"><i></i> Dados fictícios</span></div>
+              <div class="project-meta"><span class="project-number">PROJETO 02</span><span class="project-status"><i></i> Dados fictícios</span></div>
               <h3>Inteligência Comercial</h3>
               <p>Uma visão integrada de vendas para acompanhar receita, ticket médio, base de clientes e evolução mensal, com cortes por marca, gênero e continente.</p>
               <div class="project-points"><span>↗ Receita, ticket médio e clientes</span><span>↗ Evolução mensal do faturamento</span><span>↗ Cortes por marca, gênero e continente</span></div>
@@ -85,10 +125,10 @@
               <a class="project-shot project-link" href="#" data-project="agrovita" aria-label="Ver detalhes do projeto Agrovita">
                 <img src="imagens/agrovita-visao-executiva.webp" width="1481" height="809" loading="lazy" alt="Página Visão Executiva do dashboard AgroVita em Power BI com OEE, aderência de CAPEX, projetos no prazo, economia gerada, incidentes e backlog médio">
               </a>
-              <span class="visual-label">02 / AGRO & OPERAÇÕES</span>
+              <span class="visual-label">03 / AGRO & OPERAÇÕES</span>
             </div>
             <div class="project-body">
-              <div class="project-meta"><span class="project-number">PROJETO 02</span><span class="project-status"><i></i> Em desenvolvimento</span></div>
+              <div class="project-meta"><span class="project-number">PROJETO 03</span><span class="project-status"><i></i> Em desenvolvimento</span></div>
               <h3>Agrovita | Engenharia & Agro</h3>
               <p>Relatório de quatro páginas para acompanhar OEE, CAPEX e KPIs de Engenharia por unidade, sustentado por um modelo dimensional com três tabelas fato.</p>
               <div class="project-points"><span>↗ OEE por unidade e equipamento</span><span>↗ CAPEX planejado vs. realizado</span><span>↗ KPIs de Engenharia</span></div>
@@ -144,6 +184,7 @@
             <div><b>MBA em Inteligência Competitiva e Inovação em Marketing</b><span>Unopar Anhanguera · concluído em jul/2026</span></div>
             <div><b>MBA em Marketing e Vendas</b><span>Unopar Anhanguera · concluído em set/2025</span></div>
             <div><b>Tecnólogo em Análise e Desenvolvimento de Sistemas</b><span>Faculdade Anhanguera · concluído em dez/2023</span></div>
+            <div><b>Engenharia Civil</b><span>Unopar Anhanguera · em andamento, conclusão prevista para 2031</span></div>
             <div><b>Técnico em Desenho Mecânico</b><span>SENAI Roberto Mange · concluído em 2014</span></div>
           </div>
         </div>
@@ -160,7 +201,9 @@
           <div class="skill-item"><span class="skill-icon model">◈</span><div><h3>Modelagem de dados</h3><p>Relacionamentos e estrutura analítica</p></div></div>
           <div class="skill-item"><span class="skill-icon excel">⊞</span><div><h3>Excel avançado</h3><p>Tabelas dinâmicas, PROCX, SOMASES e MÉDIASES</p></div></div>
           <div class="skill-item"><span class="skill-icon sap">S</span><div><h3>SAP e CRM</h3><p>S/4HANA, ECC, Business One e CRM SAP</p></div></div>
-          <div class="skill-item"><span class="skill-icon sql">▤</span><div><h3>SQL</h3><p>Conhecimento acadêmico: SELECT, JOIN e subconsultas</p></div></div>
+          <div class="skill-item"><span class="skill-icon sql">▤</span><div><h3>SQL</h3><p>SELECT, JOIN, subconsultas, CTE e LAG (SQLite)</p></div></div>
+          <div class="skill-item"><span class="skill-icon python">Py</span><div><h3>Python</h3><p>Limpeza e análise de dados com pandas</p></div></div>
+          <div class="skill-item"><span class="skill-icon quality">✓</span><div><h3>Qualidade de dados</h3><p>Limpeza, consolidação e validação da base</p></div></div>
           <div class="skill-item"><span class="skill-icon business">◎</span><div><h3>Visão de negócio</h3><p>Processos industriais, vendas técnicas B2B e melhoria contínua</p></div></div>
         </div>
       </div>
@@ -189,12 +232,15 @@
     <button class="dialog-close" aria-label="Fechar">×</button>
     <p class="eyebrow">DETALHES DO PROJETO</p><h2 id="dialog-title">Projeto</h2><p id="dialog-description"></p>
     <div class="dialog-info"><h3>O que este projeto demonstra</h3><ul id="dialog-list"></ul></div>
+    <ol id="dialog-pipeline" class="pipeline-steps" hidden></ol>
     <a class="button button-primary" id="dialog-report" href="#" target="_blank" rel="noopener">Abrir relatório <span>↗</span></a>
     <div id="dialog-gallery" class="gallery"></div>
     <p class="dialog-tip">Clique em uma imagem para ampliar.</p>
   </dialog>
   <dialog id="lightbox" class="lightbox">
     <button class="lightbox-close" aria-label="Fechar imagem">×</button>
+    <button class="lightbox-nav prev" aria-label="Imagem anterior">‹</button>
+    <button class="lightbox-nav next" aria-label="Próxima imagem">›</button>
     <img id="lightbox-img" alt="">
     <p id="lightbox-caption"></p>
   </dialog>

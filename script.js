@@ -3,6 +3,8 @@ const SETTINGS = {
   // Informe os links públicos dos relatórios (ou páginas de detalhes).
   comercialUrl: "https://drive.google.com/file/d/1-zaKNNJX60IG6K3tTkx4kYdD0hDjNZq9/view?usp=drive_link",
   agrovitaUrl: "https://drive.google.com/file/d/1FDmKYi5pEFW3GZxvpLr627Vv2Q2ZYh88/view?usp=drive_link",
+  // Urban Ranch: cole aqui o link do relatório quando publicar (vazio = o botão "Abrir relatório" some).
+  urbanranchUrl: "",
   // Links opcionais:
   linkedinUrl: "https://www.linkedin.com/in/wolfkurban",
   cvUrl: "https://drive.google.com/file/d/1na0oiq-MqdwezxWSUiWsSjMRnuQsw-YD/view?usp=drive_link"
@@ -25,6 +27,66 @@ navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", ()
 
 const IMG = "imagens/";
 const projects = {
+  urbanranch: {
+    title: "Urban Ranch Pecuária",
+    description: "Case fictício de pecuária de corte, feito do banco de dados ao dashboard: dados em SQLite, consultas em SQL, limpeza e análise em Python e um relatório de quatro páginas em Power BI.",
+    bullets: [
+      "Banco SQLite com 16 tabelas (dimensões e fatos) e consultas SQL com CTE e a função LAG para calcular o GMD",
+      "Python (pandas): exploração, limpeza e correção da base, com remoção de duplicados e ajuste de sinais e pesos",
+      "Análises de margem por unidade e de mortalidade por origem do gado",
+      "Power BI: medidas DAX e quatro páginas (Visão Executiva, Desempenho Zootécnico, Custos e Rentabilidade e Capex Rural)"
+    ],
+    pipeline: [
+      { title: "SQL", text: "Consulta e confere o banco SQLite" },
+      { title: "Python", text: "Explora, limpa, corrige e analisa" },
+      { title: "Power BI", text: "Modela, calcula as medidas e apresenta" }
+    ],
+    url: SETTINGS.urbanranchUrl,
+    gallery: [
+      { group: "Dashboard", src: "urbanranch-visao-executiva.webp", w: 1445, h: 810,
+        alt: "Urban Ranch, página Visão Executiva",
+        caption: "Visão Executiva: faturamento, margem, margem %, custo da arroba produzida, GMD e mortalidade dos lotes encerrados, com margem por ano de encerramento e por unidade." },
+      { group: "Dashboard", src: "urbanranch-desempenho-zootecnico.webp", w: 1442, h: 810,
+        alt: "Urban Ranch, página Desempenho Zootécnico",
+        caption: "Desempenho Zootécnico: GMD por unidade e por raça, mortalidade por origem, mortes por causa e raça e chuva média por mês." },
+      { group: "Dashboard", src: "urbanranch-custos-rentabilidade.webp", w: 1438, h: 814,
+        alt: "Urban Ranch, página Custos e Rentabilidade",
+        caption: "Custos e Rentabilidade: custo operacional por categoria e por unidade, ponto de equilíbrio, margem por arroba e lotes com prejuízo." },
+      { group: "Dashboard", src: "urbanranch-capex-rural.webp", w: 1441, h: 809,
+        alt: "Urban Ranch, página Capex Rural",
+        caption: "Capex Rural: orçamento aprovado, comprometido e realizado, saldo disponível, projetos atrasados e avanço físico e financeiro." },
+      { group: "SQL", src: "urbanranch-sql-consulta-lote.webp", w: 1600, h: 1016,
+        alt: "Consulta SQL no banco SQLite do Urban Ranch",
+        caption: "Banco SQLite com as tabelas de dimensões e fatos e uma primeira consulta com SELECT e LIMIT na tabela de lotes." },
+      { group: "SQL", src: "urbanranch-sql-gmd-por-unidade.webp", w: 1600, h: 725,
+        alt: "Consulta SQL com CTE e LAG para calcular o GMD",
+        caption: "CTE com LAG(): calcula o ganho de peso e os dias entre pesagens para chegar ao GMD médio por unidade." },
+      { group: "Python", src: "urbanranch-python-explorar-vendas.webp", w: 1262, h: 1003,
+        alt: "Script Python que explora a tabela de vendas",
+        caption: "Exploração da tabela de vendas com pandas: valores vazios por coluna, embarques repetidos e cabeças vendidas negativas." },
+      { group: "Python", src: "urbanranch-python-limpar-vendas.webp", w: 1625, h: 1025,
+        alt: "Script Python que limpa a tabela de vendas",
+        caption: "Limpeza das vendas: remove embarques duplicados e corrige o sinal das cabeças, com o faturamento antes e depois (de R$ 324,85 mi para R$ 321,15 mi)." },
+      { group: "Python", src: "urbanranch-python-limpar-pesagem.webp", w: 1620, h: 1003,
+        alt: "Script Python que limpa a tabela de pesagens",
+        caption: "Limpeza das pesagens: padroniza tipos, remove duplicadas e registros fora da vida do lote, corrige pesos negativos e com erro de escala (x10) e preenche ausentes." },
+      { group: "Python", src: "urbanranch-python-analise-negocio.webp", w: 1620, h: 1037,
+        alt: "Script Python com a análise de negócio",
+        caption: "Análise de negócio: margem por unidade nos lotes encerrados e mortalidade por origem do gado, com gráfico gerado em Matplotlib." },
+      { group: "Python", src: "urbanranch-python-exportar-powerbi.webp", w: 1620, h: 1021,
+        alt: "Script Python que exporta os dados tratados para o Power BI",
+        caption: "Exportação das tabelas tratadas para um arquivo Excel, com uma aba por tabela, que alimenta o Power BI." },
+      { group: "Power BI e DAX", src: "urbanranch-powerbi-ano-encerramento.webp", w: 1914, h: 992,
+        alt: "Power BI: coluna Ano Encerramento na tabela dim_lote",
+        caption: "Power BI: nova coluna Ano Encerramento na tabela dim_lote e a medida de arrobas produzidas." },
+      { group: "Power BI e DAX", src: "urbanranch-dax-arrobas-produzidas.png", w: 577, h: 176,
+        alt: "Medida DAX Arrobas Produzidas (Encerrados)",
+        caption: "Arrobas Produzidas (Encerrados): SUMX nos lotes encerrados, com (peso vendido menos peso de entrada) x rendimento de referência, dividido por 15 kg." },
+      { group: "Power BI e DAX", src: "urbanranch-medidas-lista.png", w: 239, h: 460,
+        alt: "Lista de medidas do modelo Urban Ranch",
+        caption: "Pasta _Medidas do modelo: custo da arroba produzida, custo operacional, faturamento, margem, GMD, mortalidade e outras medidas." }
+    ]
+  },
   comercial: {
     title: "Inteligência Comercial",
     description: "Dashboard demonstrativo, com dados fictícios, para acompanhar resultados comerciais e entender a evolução das vendas.",
@@ -88,49 +150,107 @@ const projects = {
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 const lightboxCaption = document.getElementById("lightbox-caption");
-function openLightbox(item) {
+let lightboxList = [];
+let lightboxIndex = 0;
+function showLightbox() {
+  const item = lightboxList[lightboxIndex];
   lightboxImg.src = IMG + item.src;
   lightboxImg.alt = item.alt;
-  lightboxCaption.textContent = item.caption;
-  lightbox.showModal();
+  lightboxCaption.textContent = (lightboxList.length > 1 ? (lightboxIndex + 1) + " de " + lightboxList.length + " · " : "") + item.caption;
+  lightbox.classList.toggle("single", lightboxList.length < 2);
+}
+function openLightbox(list, index) {
+  lightboxList = list;
+  lightboxIndex = index;
+  showLightbox();
+  if (!lightbox.open) lightbox.showModal();
+}
+function stepLightbox(direction) {
+  if (lightboxList.length < 2) return;
+  lightboxIndex = (lightboxIndex + direction + lightboxList.length) % lightboxList.length;
+  showLightbox();
 }
 lightbox.querySelector(".lightbox-close").addEventListener("click", () => lightbox.close());
+lightbox.querySelector(".lightbox-nav.prev").addEventListener("click", () => stepLightbox(-1));
+lightbox.querySelector(".lightbox-nav.next").addEventListener("click", () => stepLightbox(1));
 lightbox.addEventListener("click", event => {
   if (event.target === lightbox) lightbox.close();
 });
+lightbox.addEventListener("keydown", event => {
+  if (event.key === "ArrowLeft") stepLightbox(-1);
+  if (event.key === "ArrowRight") stepLightbox(1);
+});
+
+function renderPipeline(steps) {
+  const list = document.getElementById("dialog-pipeline");
+  list.replaceChildren();
+  list.hidden = !steps || steps.length === 0;
+  (steps || []).forEach(step => {
+    const li = document.createElement("li");
+    const title = document.createElement("b");
+    title.textContent = step.title;
+    const text = document.createElement("span");
+    text.textContent = step.text;
+    li.append(title, text);
+    list.appendChild(li);
+  });
+}
+
 function renderGallery(items) {
   const gallery = document.getElementById("dialog-gallery");
   gallery.replaceChildren();
-  let currentGroup = null, grid = null;
-  items.forEach(item => {
-    if (item.group !== currentGroup) {
-      currentGroup = item.group;
-      const title = document.createElement("h3");
-      title.className = "gallery-title";
-      title.textContent = currentGroup;
-      grid = document.createElement("div");
-      grid.className = "gallery-grid";
-      gallery.append(title, grid);
-    }
-    const figure = document.createElement("figure");
-    figure.className = "gallery-item" + (item.wide ? " wide" : "") + (item.side ? " side" : "");
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "gallery-thumb";
-    button.setAttribute("aria-label", "Ampliar: " + item.alt);
-    const img = document.createElement("img");
-    img.src = IMG + item.src;
-    img.alt = item.alt;
-    img.width = item.w;
-    img.height = item.h;
-    img.loading = "lazy";
-    button.appendChild(img);
-    button.addEventListener("click", () => openLightbox(item));
-    const caption = document.createElement("figcaption");
-    caption.textContent = item.caption;
-    figure.append(button, caption);
-    grid.appendChild(figure);
-  });
+  const groups = [...new Set(items.map(item => item.group))];
+  const panel = document.createElement("div");
+  panel.className = "gallery-panel";
+
+  function showGroup(group) {
+    gallery.querySelectorAll(".gallery-tab").forEach(tab => tab.setAttribute("aria-selected", String(tab.dataset.group === group)));
+    const groupItems = items.filter(item => item.group === group);
+    panel.replaceChildren();
+    const grid = document.createElement("div");
+    grid.className = "gallery-grid";
+    groupItems.forEach((item, index) => {
+      const figure = document.createElement("figure");
+      figure.className = "gallery-item" + (item.wide ? " wide" : "") + (item.side ? " side" : "");
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "gallery-thumb";
+      button.setAttribute("aria-label", "Ampliar: " + item.alt);
+      const img = document.createElement("img");
+      img.src = IMG + item.src;
+      img.alt = item.alt;
+      img.width = item.w;
+      img.height = item.h;
+      img.loading = "lazy";
+      img.decoding = "async";
+      button.appendChild(img);
+      button.addEventListener("click", () => openLightbox(groupItems, index));
+      const caption = document.createElement("figcaption");
+      caption.textContent = item.caption;
+      figure.append(button, caption);
+      grid.appendChild(figure);
+    });
+    panel.appendChild(grid);
+  }
+
+  if (groups.length > 1) {
+    const tabs = document.createElement("div");
+    tabs.className = "gallery-tabs";
+    tabs.setAttribute("role", "tablist");
+    groups.forEach(group => {
+      const tab = document.createElement("button");
+      tab.type = "button";
+      tab.className = "gallery-tab";
+      tab.setAttribute("role", "tab");
+      tab.dataset.group = group;
+      tab.textContent = group + " (" + items.filter(item => item.group === group).length + ")";
+      tab.addEventListener("click", () => showGroup(group));
+      tabs.appendChild(tab);
+    });
+    gallery.appendChild(tabs);
+  }
+  gallery.appendChild(panel);
+  if (groups.length) showGroup(groups[0]);
 }
 const dialog = document.getElementById("project-dialog");
 document.querySelectorAll(".project-link").forEach(link => link.addEventListener("click", event => {
@@ -142,6 +262,7 @@ document.querySelectorAll(".project-link").forEach(link => link.addEventListener
   list.replaceChildren(...project.bullets.map(item => {
     const li = document.createElement("li"); li.textContent = item; return li;
   }));
+  renderPipeline(project.pipeline);
   renderGallery(project.gallery || []);
   const reportLink = document.getElementById("dialog-report");
   if (project.url) {
@@ -176,3 +297,42 @@ function configureOptionalLink(id, rawUrl) {
 }
 configureOptionalLink("linkedin-link", SETTINGS.linkedinUrl);
 configureOptionalLink("cv-link", SETTINGS.cvUrl);
+
+
+// ===== Tema claro / escuro =====
+const themeButton = document.querySelector(".theme-toggle");
+const themeMeta = document.querySelector('meta[name="theme-color"]');
+function applyTheme(theme, save) {
+  document.documentElement.dataset.theme = theme;
+  themeButton.querySelector("span").textContent = theme === "dark" ? "☀" : "☾";
+  themeButton.setAttribute("aria-label", theme === "dark" ? "Ativar modo claro" : "Ativar modo escuro");
+  if (themeMeta) themeMeta.setAttribute("content", theme === "dark" ? "#0c1622" : "#ffffff");
+  if (save) { try { localStorage.setItem("theme", theme); } catch (error) { /* sem armazenamento: segue sem salvar */ } }
+}
+applyTheme(document.documentElement.dataset.theme || "light", false);
+themeButton.addEventListener("click", () => applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true));
+
+// ===== Menu: destaca a seção que está na tela =====
+const navAnchors = [...document.querySelectorAll('.nav-links a[href^="#"]:not(.nav-cta)')];
+const spySections = navAnchors.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+if ("IntersectionObserver" in window && spySections.length) {
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      navAnchors.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + entry.target.id));
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  spySections.forEach(section => spy.observe(section));
+}
+
+// ===== Animação de entrada ao rolar (respeita "reduzir movimento") =====
+const reduceMotion = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (!reduceMotion && "IntersectionObserver" in window) {
+  const targets = document.querySelectorAll(".hero-stats > div, .section-heading, .project-card, .timeline-item, .education, .skill-item, .about-grid > div, .contact-panel");
+  const reveal = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add("in"); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+  targets.forEach(el => { el.classList.add("reveal"); reveal.observe(el); });
+}

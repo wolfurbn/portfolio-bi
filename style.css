@@ -85,3 +85,150 @@
 .gallery-item.side .gallery-thumb{width:100%}
 .gallery-item.side figcaption{font-size:12px;line-height:1.8}
 @media(max-width:850px){.gallery-item.side{grid-template-columns:1fr;gap:8px}}
+
+/* ======================================================================
+   VERSÃO 2.0: acessibilidade, navegação, destaque do projeto, modo escuro
+   ====================================================================== */
+
+/* ===== Acessibilidade e navegação ===== */
+.skip-link{position:absolute;left:12px;top:-70px;z-index:50;background:var(--ink);color:var(--paper);padding:10px 14px;border-radius:8px;font-size:12px;font-weight:700;transition:top .2s}
+.skip-link:focus{top:12px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+.brand{order:1}.nav-links{order:2}
+.nav-tools{order:3;display:flex;align-items:center;gap:6px}
+.theme-toggle{width:36px;height:36px;display:grid;place-items:center;border:1px solid #d9e2eb;border-radius:9px;background:transparent;color:var(--ink);font-size:16px;line-height:1;cursor:pointer;transition:border-color .2s,transform .2s}
+.theme-toggle:hover{border-color:var(--green);transform:translateY(-1px)}
+.nav-links>a:not(.nav-cta){position:relative}
+.nav-links>a.active:not(.nav-cta){color:var(--blue)}
+.nav-links>a.active:not(.nav-cta)::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;border-radius:2px;background:var(--green)}
+
+/* ===== Selo flutuante do hero (estava sem estilo) ===== */
+.floating-note{position:absolute;z-index:2;left:4%;bottom:-16px;display:flex;align-items:center;gap:11px;padding:11px 15px 11px 11px;background:rgba(255,255,255,.96);border:1px solid #e4ebf1;border-radius:12px;box-shadow:0 14px 34px rgba(23,57,87,.14)}
+.floating-note .note-icon{width:30px;height:30px;display:grid;place-items:center;border-radius:8px;background:#e5f7ef;color:var(--green);font-weight:800}
+.floating-note>span:last-child{display:flex;flex-direction:column;line-height:1.35}
+.floating-note strong{font:700 12px Manrope,sans-serif;color:var(--ink)}
+.floating-note small{font-size:10px;color:var(--muted)}
+
+/* ===== Faixa de números do hero ===== */
+.hero .hero-grid{padding-bottom:36px}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);position:relative;z-index:2;border-top:1px solid var(--line);padding-block:6px 34px}
+.hero-stats>div{display:flex;flex-direction:column;gap:5px;padding:18px 22px;border-left:1px solid var(--line)}
+.hero-stats>div:first-child{border-left:0;padding-left:0}
+.hero-stats b{font:800 26px Manrope,sans-serif;letter-spacing:-.04em;color:var(--ink)}
+.hero-stats span{font-size:11px;line-height:1.55;color:var(--muted);max-width:210px}
+
+/* ===== Projeto em destaque (Urban Ranch) ===== */
+.project-card.featured{grid-column:1/-1;grid-template-columns:1.18fr .82fr}
+.ranch-visual{background:linear-gradient(135deg,rgba(6,22,20,.78),rgba(6,22,20,.5)),url("imagens/urbanranch-banner.webp") center/cover no-repeat}
+.ranch-visual:before{display:none}
+.ranch-visual .visual-label{color:#d6e6de}
+.project-visual.ranch-visual.has-shot{padding:36px 36px 52px}
+.featured .project-shot{max-width:660px;box-shadow:0 20px 46px rgba(0,0,0,.35)}
+.featured .project-body{display:flex;flex-direction:column;justify-content:center;padding:34px 34px 32px}
+.featured .project-body h3{font-size:27px}
+.featured .project-body>p{min-height:0}
+.pipeline{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 17px}
+.pipeline span{font:700 11px Manrope,sans-serif;padding:6px 12px;border-radius:999px;background:#e5f0fb;color:var(--blue-dark)}
+.pipeline span:nth-of-type(2){background:#fff4d9;color:#8a6200}
+.pipeline span:nth-of-type(3){background:#e5f7ef;color:var(--green-dark)}
+.pipeline i{font-style:normal;color:#9aa9ba;font-size:13px}
+
+/* ===== Etapas dentro da janela de detalhes ===== */
+.pipeline-steps{list-style:none;margin:0 0 6px;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;counter-reset:step}
+.pipeline-steps[hidden]{display:none}
+.pipeline-steps li{counter-increment:step;display:flex;flex-direction:column;gap:3px;padding:13px 15px;background:var(--wash);border:1px solid var(--line);border-radius:12px}
+.pipeline-steps li:before{content:"Etapa " counter(step);font:700 9px "DM Sans",sans-serif;letter-spacing:1.2px;text-transform:uppercase;color:var(--green)}
+.pipeline-steps b{font:700 14px Manrope,sans-serif;color:var(--ink)}
+.pipeline-steps span{font-size:11px;line-height:1.55;color:var(--muted)}
+
+/* ===== Abas da galeria ===== */
+.gallery-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 14px}
+.gallery-tab{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;padding:8px 15px;font:600 12px "DM Sans",sans-serif;cursor:pointer;transition:border-color .2s,color .2s,background .2s}
+.gallery-tab:hover{border-color:var(--green);color:var(--ink)}
+.gallery-tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.gallery-panel{min-height:120px}
+.gallery-panel .gallery-grid{margin-top:0}
+
+/* ===== Setas da imagem ampliada ===== */
+.lightbox-nav{position:absolute;top:calc(50% - 34px);z-index:2;width:44px;height:44px;display:grid;place-items:center;border:0;border-radius:50%;background:rgba(10,24,40,.6);color:#fff;font-size:28px;line-height:1;cursor:pointer;transition:background .2s}
+.lightbox-nav:hover{background:rgba(10,24,40,.85)}
+.lightbox-nav.prev{left:22px}.lightbox-nav.next{right:22px}
+.lightbox.single .lightbox-nav{display:none}
+
+/* ===== Novos ícones de competências ===== */
+.skill-icon.python{background:#fff4d9;color:#9a6b00;font-size:14px}
+.skill-icon.quality{background:#e7f7ef;color:#0b9465}
+
+/* ===== Animação de entrada ===== */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+.project-card.reveal{transition:opacity .6s ease,transform .6s ease,box-shadow .2s}
+.project-card.reveal.in:hover{transform:translateY(-4px)}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* ===== Responsivo ===== */
+@media(max-width:1000px){
+  .project-card.featured{grid-template-columns:1fr}
+  .project-visual.ranch-visual.has-shot{padding:28px 24px 48px}
+  .featured .project-body{padding:26px}
+}
+@media(max-width:850px){
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .hero-stats>div:nth-child(3){border-left:0;padding-left:0}
+  .floating-note{left:0;bottom:2%}
+  .pipeline-steps{grid-template-columns:1fr}
+}
+@media(max-width:650px){
+  .nav-links>a.active:not(.nav-cta)::after{display:none}
+  .hero-stats b{font-size:22px}
+  .floating-note{display:none}
+}
+
+/* ======================================================================
+   MODO ESCURO
+   ====================================================================== */
+[data-theme="dark"]{color-scheme:dark;--ink:#e8eef5;--muted:#9fb0c3;--blue:#5db0f2;--blue-dark:#8cc9f7;--green:#2fcf9c;--green-dark:#5fdcb4;--line:#223449;--paper:#0c1622;--wash:#101d2b;--shadow:0 18px 50px rgba(0,0,0,.5)}
+[data-theme="dark"] .site-header{background:rgba(12,22,34,.9);border-bottom-color:rgba(34,52,73,.9)}
+[data-theme="dark"] .nav-links{color:#a9bbcf}
+[data-theme="dark"] .nav-cta,[data-theme="dark"] .theme-toggle{border-color:#2c4059}
+[data-theme="dark"] .hero{background:linear-gradient(120deg,#0d1a28 0%,#0c1622 62%,#0c211f 100%)}
+[data-theme="dark"] .hero-description{color:#a9bbcf}
+[data-theme="dark"] .hero-note{color:#8397ac}
+[data-theme="dark"] .hero-tags span,[data-theme="dark"] .tech-tags span{background:#13243a;border-color:#243a54;color:#bccbdb}
+[data-theme="dark"] .agro-visual~.project-body .tech-tags span{background:#112a26;border-color:#1f4a40}
+[data-theme="dark"] .button-ghost{background:transparent;border-color:#2c4059;color:var(--ink)}
+[data-theme="dark"] .art-window,[data-theme="dark"] .floating-note{background:rgba(17,31,46,.95);border-color:var(--line)}
+[data-theme="dark"] .art-window-top{border-color:var(--line);color:#8ea1b6}
+[data-theme="dark"] .art-kpis>div{background:#13243a;border-color:var(--line)}
+[data-theme="dark"] .art-kpis small,[data-theme="dark"] .chart-footer{color:#8ea1b6}
+[data-theme="dark"] .bar-chart{border-color:var(--line);background:repeating-linear-gradient(to bottom,transparent 0,transparent 24px,#1a2b3f 25px)}
+[data-theme="dark"] .window-dots i{background:#2a3d54}
+[data-theme="dark"] .floating-note .note-icon{background:rgba(47,207,156,.16)}
+[data-theme="dark"] .projects-section,[data-theme="dark"] .experience-section{background:var(--paper)}
+[data-theme="dark"] .project-card,[data-theme="dark"] .timeline-card{background:#0f1d2c}
+[data-theme="dark"] .sales-visual{background:linear-gradient(135deg,#0f2438,#0d1a29)}
+[data-theme="dark"] .agro-visual{background:linear-gradient(135deg,#0f2a24,#0d1c1a)}
+[data-theme="dark"] .project-shot,[data-theme="dark"] .gallery-thumb{background:#0f1d2c;border-color:var(--line)}
+[data-theme="dark"] .project-dialog,[data-theme="dark"] .lightbox{background:#0f1d2c;color:var(--ink);border-color:var(--line)}
+[data-theme="dark"] .dialog-info{background:#122234}
+[data-theme="dark"] .dialog-info ul,[data-theme="dark"] .timeline-card ul,[data-theme="dark"] .project-points span,[data-theme="dark"] .about-copy>p{color:#a9bbcf}
+[data-theme="dark"] .project-number,[data-theme="dark"] .project-status,[data-theme="dark"] .visual-label,[data-theme="dark"] .section-footnote,[data-theme="dark"] .skill-item p,[data-theme="dark"] .footer-inner>p,[data-theme="dark"] .footer-bottom{color:#8ea1b6}
+[data-theme="dark"] .dialog-close,[data-theme="dark"] .lightbox-close{color:#9fb0c3}
+[data-theme="dark"] .ranch-visual .visual-label{color:#d6e6de}
+[data-theme="dark"] .skill-item{border-color:var(--line)}
+[data-theme="dark"] .skill-icon{background:rgba(93,176,242,.15);color:#7cc0f5}
+[data-theme="dark"] .skill-icon.query,[data-theme="dark"] .skill-icon.model,[data-theme="dark"] .skill-icon.quality{background:rgba(47,207,156,.15);color:#4fdcb0}
+[data-theme="dark"] .skill-icon.dax,[data-theme="dark"] .skill-icon.python{background:rgba(240,184,46,.16);color:#f0c04a}
+[data-theme="dark"] .skill-icon.business{background:rgba(125,148,235,.18);color:#9fb2f3}
+[data-theme="dark"] .skill-icon.excel{background:rgba(52,200,110,.16);color:#58d98b}
+[data-theme="dark"] .skill-icon.sql,[data-theme="dark"] .skill-icon.sap{background:rgba(93,176,242,.15);color:#7cc0f5}
+[data-theme="dark"] .pipeline span{background:rgba(93,176,242,.16);color:#8cc9f7}
+[data-theme="dark"] .pipeline span:nth-of-type(2){background:rgba(240,184,46,.16);color:#f0c04a}
+[data-theme="dark"] .pipeline span:nth-of-type(3){background:rgba(47,207,156,.16);color:#5fdcb4}
+[data-theme="dark"] .footer{background:#09121c}
+[data-theme="dark"] .contact-panel{background:#12263a;border:1px solid var(--line)}
+[data-theme="dark"] .gallery-thumb:hover,[data-theme="dark"] .gallery-thumb:focus-visible{box-shadow:0 8px 22px rgba(0,0,0,.4)}
+@media(max-width:650px){[data-theme="dark"] .nav-links{background:var(--paper);box-shadow:0 15px 25px rgba(0,0,0,.4)}}
+.lightbox-close{top:10px;right:10px;width:36px;height:36px;display:grid;place-items:center;border-radius:50%;background:rgba(10,24,40,.65);color:#fff;font-size:22px;line-height:1}
+.lightbox-close:hover{background:rgba(10,24,40,.9)}
+[data-theme="dark"] .lightbox-close{color:#fff}
