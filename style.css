@@ -232,3 +232,4 @@
 .lightbox-close{top:10px;right:10px;width:36px;height:36px;display:grid;place-items:center;border-radius:50%;background:rgba(10,24,40,.65);color:#fff;font-size:22px;line-height:1}
 .lightbox-close:hover{background:rgba(10,24,40,.9)}
 [data-theme="dark"] .lightbox-close{color:#fff}
+.project-dialog .pipeline-steps{margin-bottom:16px}

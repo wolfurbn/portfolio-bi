@@ -3,8 +3,8 @@ const SETTINGS = {
   // Informe os links públicos dos relatórios (ou páginas de detalhes).
   comercialUrl: "https://drive.google.com/file/d/1-zaKNNJX60IG6K3tTkx4kYdD0hDjNZq9/view?usp=drive_link",
   agrovitaUrl: "https://drive.google.com/file/d/1FDmKYi5pEFW3GZxvpLr627Vv2Q2ZYh88/view?usp=drive_link",
-  // Urban Ranch: cole aqui o link do relatório quando publicar (vazio = o botão "Abrir relatório" some).
-  urbanranchUrl: "",
+  // Urban Ranch: relatório em PDF (se ficar vazio, o botão "Abrir relatório" some).
+  urbanranchUrl: "https://drive.google.com/file/d/1t8AnYOfUl8eLprSTTiVUm6DF6n_O0K5Z/view?usp=drivesdk",
   // Links opcionais:
   linkedinUrl: "https://www.linkedin.com/in/wolfkurban",
   cvUrl: "https://drive.google.com/file/d/1na0oiq-MqdwezxWSUiWsSjMRnuQsw-YD/view?usp=drive_link"
@@ -34,7 +34,7 @@ const projects = {
       "Banco SQLite com 16 tabelas (dimensões e fatos) e consultas SQL com CTE e a função LAG para calcular o GMD",
       "Python (pandas): exploração, limpeza e correção da base, com remoção de duplicados e ajuste de sinais e pesos",
       "Análises de margem por unidade e de mortalidade por origem do gado",
-      "Power BI: medidas DAX e quatro páginas (Visão Executiva, Desempenho Zootécnico, Custos e Rentabilidade e Capex Rural)"
+      "Power BI: modelo dimensional, medidas DAX e quatro páginas (Visão Executiva, Desempenho Zootécnico, Custos e Rentabilidade e Capex Rural)"
     ],
     pipeline: [
       { title: "SQL", text: "Consulta e confere o banco SQLite" },
@@ -76,6 +76,9 @@ const projects = {
       { group: "Python", src: "urbanranch-python-exportar-powerbi.webp", w: 1620, h: 1021,
         alt: "Script Python que exporta os dados tratados para o Power BI",
         caption: "Exportação das tabelas tratadas para um arquivo Excel, com uma aba por tabela, que alimenta o Power BI." },
+      { group: "Modelagem de dados", src: "urbanranch-modelagem.webp", w: 1138, h: 771, side: true,
+        alt: "Modelo de dados do Urban Ranch no Power BI",
+        caption: "Modelo dimensional no Power BI: nove tabelas fato (vendas, pesagem, movimentação, alimentação, sanidade, custos por lote, carcaça, clima e CAPEX) ligadas a sete dimensões (calendário, lote, unidade, piquete, projeto, raça e comprador), mais a tabela de medidas." },
       { group: "Power BI e DAX", src: "urbanranch-powerbi-ano-encerramento.webp", w: 1914, h: 992,
         alt: "Power BI: coluna Ano Encerramento na tabela dim_lote",
         caption: "Power BI: nova coluna Ano Encerramento na tabela dim_lote e a medida de arrobas produzidas." },
